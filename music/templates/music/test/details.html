@@ -31,20 +31,42 @@
             <div class="wrap-table100">
                 <center>
                     <img src="{{album.album_logo}}">
-                    <h1>{{album.album_title}}</h1>
-                    <h3> {{album.artist}} </h3><br>
-                        <ul>
-                            {% for song in album.songs_set.all %}
-                            <li>{{song.song_title}} - {{song.file_type}}</li>
-                            {% endfor %}
-                        </ul>
+                    <h1>{{album.album_title}} - {{album.artist}}</h1>
+                    <br>
+                    <div class="table100">
+                        <form action="{% url 'music:favorite' album.id %}" method="post">
+                                {% csrf_token %}
+                            <table>
+                                <thead>
+                                    <tr class="table100-head">
+                                        <th class="column1">Song name</th>
+                                        <th class="column2">File type</th>
+                                        <th class="column3">Toggle favorite</th>
+                                    </tr>
+                                </thead>
+                                {% for song in album.songs_set.all %}
+                                <tbody>
+                                    <tr>
+                                        <td class="column1">{{song.song_title}} {% if song.is_favorite %}
+                                            <img src="{% static 'music/images/icons/favorite.png' %}" />{% endif %}</td>
+                                        <td class="column2">{{song.file_type}}</td>
+                                        <td>
+                                            <input type="radio" name="song" value="{{ song.id }}"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                {% endfor %}
+
+
+                            </table>
+                            <input type="submit" value="Favorite" class="submit_button" style="vertical-align:middle"/>
+                        </form>
+
+                    </div>
                 </center>
             </div>
         </div>
     </div>
-
-
-
 
     <!--===============================================================================================-->
     <script src="{% static 'music/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
