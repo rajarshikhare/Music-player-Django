@@ -42,7 +42,7 @@
   }
   
   /* ------------------------------------ */
-  h1,h2,h3,h4,h5,h6 {margin: 0px;}
+  h1,h2,h3,h4,h5,h6 {margin: 10px;}
   
   p {margin: 0px;}
   
@@ -352,7 +352,7 @@
       }
       
       .button span:after {
-        content: '\00bb';
+        content: '  \bb';
         position: absolute;
         opacity: 0;
         top: 0;
@@ -369,4 +369,66 @@
         right: 0;
       }
   
+   
+      .submit_button_back {
+        display: inline-block;
+        border-radius: 4px;
+        background-color: #f4511e;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 18px;
+        padding: 10px;
+        width: 200px;
+        transition: all 1s;
+        cursor: pointer;
+        margin: 10px;
+      }
   
+      .button_back {
+          display: inline-block;
+          border-radius: 4px;
+          background-color: #f4511e;
+          border: none;
+          color: #FFFFFF;
+          text-align: center;
+          font-size: 20px;
+          padding: 20px;
+          width: 150px;
+          height: 10px;
+          transition: all 0.5s;
+          cursor: pointer;
+          margin: 1px;
+          
+        }
+        
+        .button_back span {
+          cursor: pointer;
+          display: inline-block;
+          position: relative;
+          transition: 0.5s;
+          margin-top: 0px;
+          top: -13px;
+        }
+        
+        .button_back span:after {
+          content: '  \21D0';
+          position: absolute;
+          opacity: 0;
+          top: 0;
+          right: -20px;
+          transition: 0.5s;
+        }
+        
+        .button_back:hover span {
+          padding-right: 25px;
+        }
+        
+        .button_back:hover span:after {
+          opacity: 1;
+          right: 0;
+        }
+
+        td a {
+            display: block;
+        }

@@ -19,13 +19,3 @@ class Songs(models.Model):
 
 	def __str__(self):
 		return self.song_title
-
-
-class Person(models.Model):
-    name = models.CharField(max_length=100)
-    email = models.CharField(max_length=100,default="none")
-    password = models.CharField(max_length=100, default="none")
-
-    def __str__(self):
-        return self.name
-    
