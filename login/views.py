@@ -18,4 +18,4 @@ def validate(request):
         return render(request, 'login/index.html' ,{ 'isWrong': True})
 
 
-    return redirect('http://127.0.0.1:8000/music/', {test: 'dhf'})
+    return redirect('/music/')
