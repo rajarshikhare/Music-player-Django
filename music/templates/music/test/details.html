@@ -30,7 +30,12 @@
 
         <div class="container-table100">
             <div class="wrap-table100">
-                    <form action="/music" class="back_bt_form">
+                    <form action="/music/back_details/1" class="back_bt_form">
+                        <button class="button_back">
+                            <span>Back</span>
+                        </button>
+                    </form>
+                    <form action="/music/back_details/1" class="back_bt_form">
                         <button class="button_back">
                             <span>Back</span>
                         </button>
@@ -67,7 +72,7 @@
                                                         <div id="{{song.song_title}}_bt">Play </div>
                                                     </span>
                                                 </button> -->
-                                                <audio controls id="{{ song.song_title }}" style="width: 250px;">
+                                                <audio controls id="{{ song.song_title }}" preload="none" style="width: 250px;">
                                                         <source src="{% static 'music/songs/'|add:song.song_title|add:'.mp3' %}" type="audio/mp3">
                                                     </audio>
                                                     

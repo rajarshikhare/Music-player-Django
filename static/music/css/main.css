@@ -326,3 +326,9 @@ img.play {
     margin: 10px;
   }
 
+  form.back_bt_form{
+      color: #f4511e;
+      float: left;
+      width: 10px;
+      max-width: 10px;
+  }
