@@ -30,68 +30,63 @@
 
         <div class="container-table100">
             <div class="wrap-table100">
-                    <form action="/music/back_details/1" class="back_bt_form">
-                        <button class="button_back">
-                            <span>Back</span>
-                        </button>
-                    </form>
-                    <form action="/music/back_details/1" class="back_bt_form">
-                        <button class="button_back">
-                            <span>Back</span>
-                        </button>
-                    </form>
-                    <center>
-                        <div class="album_art">
-                            <img src="{{album.album_logo}}">
-                            <h1>{{album.album_title}} - {{album.artist}}</h1>
-                        </div>
-                        <br>
-                        <div class="table100">
-                            <form action="{% url 'music:favorite' album.id %}" method="post">
-                                {% csrf_token %}
-                                <table>
-                                    <thead>
-                                        <tr class="table100-head">
-                                            <th class="column1">Song name</th>
-                                            <th class="column2">File type</th>
-                                            <th class="column3">Play</th>
-                                            <th class="column4">Toggle favorite</th>
+                <form action="/music/back_details/1" class="back_bt_form">
+                    <button class="button_back">
+                        <span>Back</span>
+                    </button>
+                </form>
+                <center>
+                    <div class="album_art">
+                        <img src="{{album.album_logo}}">
+                        <h1>{{album.album_title}} - {{album.artist}}</h1>
+                    </div>
+                    <br>
+                    <div class="table100">
+                        <form action="{% url 'music:favorite' album.id %}" method="post">
+                            {% csrf_token %}
+                            <table>
+                                <thead>
+                                    <tr class="table100-head">
+                                        <th class="column1">Song name</th>
+                                        <th class="column2">File type</th>
+                                        <th class="column3">Play</th>
+                                        <th class="column4">Toggle favorite</th>
 
-                                        </tr>
-                                    </thead>
-                                    {% for song in album.songs_set.all %}
-                                    <tbody>
-                                        <tr>
-                                            <td class="column1">{{song.song_title}} {% if song.is_favorite %}
-                                                <img src="{% static 'music/images/icons/favorite.png' %}" />{% endif %}</td>
-                                            <td class="column2">{{song.file_type}}</td>
-                                            
-                                            <td class="column3">
-                                                <!-- <button type="button" onclick="toggle('{{song.song_title}}')" class="button" style="vertical-align:middle">
+                                    </tr>
+                                </thead>
+                                {% for song in album.songs_set.all %}
+                                <tbody>
+                                    <tr>
+                                        <td class="column1">{{song.song_title}} {% if song.is_favorite %}
+                                            <img src="{% static 'music/images/icons/favorite.png' %}" />{% endif %}</td>
+                                        <td class="column2">{{song.file_type}}</td>
+
+                                        <td class="column3">
+                                            <!-- <button type="button" onclick="toggle('{{song.song_title}}')" class="button" style="vertical-align:middle">
                                                     <span>
                                                         <div id="{{song.song_title}}_bt">Play </div>
                                                     </span>
                                                 </button> -->
-                                                <audio controls id="{{ song.song_title }}" preload="none" style="width: 250px;">
-                                                        <source src="{% static 'music/songs/'|add:song.song_title|add:'.mp3' %}" type="audio/mp3">
-                                                    </audio>
-                                                    
-                                            </td>
-                                            <td class="column4">
-                                                <input type="radio" name="song" value="{{ song.id }}" />
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    {% endfor %}
+                                            <audio controls id="{{ song.song_title }}" preload="none" style="width: 250px;">
+                                                <source src="{% static 'music/songs/'|add:song.song_title|add:'.mp3' %}" type="audio/mp3">
+                                            </audio>
+
+                                        </td>
+                                        <td class="column4">
+                                            <input type="radio" name="song" value="{{ song.id }}" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                {% endfor %}
 
 
-                                </table>
-                                <br>
-                                <button class="button" style="vertical-align:middle">
-                                    <span>Submit </span>
-                                </button>
-                            </form>
-                        </div>
+                            </table>
+                            <br>
+                            <button class="button" style="vertical-align:middle">
+                                <span>Submit </span>
+                            </button>
+                        </form>
+                    </div>
 
                 </center>
             </div>
